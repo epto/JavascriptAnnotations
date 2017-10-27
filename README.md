@@ -1,4 +1,4 @@
-JavascriptAnnotations
+Javascript Annotations
 ======
 
 AnnotationsParser is a standalone annotations parser for javascript built to parse JSON objects, classes or object instances.
