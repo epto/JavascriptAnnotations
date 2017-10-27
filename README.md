@@ -4,6 +4,8 @@ Javascript Annotations
 AnnotationsParser is a standalone annotations parser for javascript created to parse JSON objects, classes or object instances.
 It supports a special types of annotations designed to set multiple metadata without annotations definitions and external libraries.
 
+(See example in "test" folder).
+
 ### How it works:
 
 Each function can have annotations. The annotations must be in a doc comment into the function body. (Normally this is inserted before the function. To allow the engine to work without javascript engine modifications and remaining compatible with previous versions of javascript you must to resort to this trick).
