@@ -15,7 +15,9 @@
  * along with this source code; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
-function AnnotationsParser() { throw "Can't create an instance of AnnotationsParser"; }
+function AnnotationsParser() { 
+	throw "Can't create an instance of AnnotationsParser"; 
+	}
 
 AnnotationsParser.PARSER_MODE_CLASS = 'class';
 AnnotationsParser.PARSER_MODE_OBJECT = 'object';
