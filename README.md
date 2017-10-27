@@ -1,12 +1,12 @@
 Javascript Annotations
 ======
 
-AnnotationsParser is a standalone annotations parser for javascript built to parse JSON objects, classes or object instances.
-It supports a special types of annotation built to set multiple metadata without annotation definition and external libraries.
+AnnotationsParser is a standalone annotations parser for javascript created to parse JSON objects, classes or object instances.
+It supports a special types of annotations designed to set multiple metadata without annotations definitions and external libraries.
 
 ### How it works:
 
-Each function can have annotations. The annotations must be in a doc comment into the function body. (Normally this is inserted before the function. To allow the engine to work without javascript engine modifications and remaining compatible with previous versions of javascript you had to resort to this trick).
+Each function can have annotations. The annotations must be in a doc comment into the function body. (Normally this is inserted before the function. To allow the engine to work without javascript engine modifications and remaining compatible with previous versions of javascript you must to resort to this trick).
 
 Example:
 ```javascript
@@ -19,9 +19,9 @@ MyClass.method = function() {
   } ;
 ```
 
-To create annotations on the class you must create a special magic function named "\_". The annotations of this function will be added to the class directly. The AnnotationsParser will call the function "\_" during the parsing to create the ClassAnnotationContext (see folloing).
+To create annotations on the class you must to create a special magic function named "\_". The annotations of this function will be added to the class directly. The AnnotationsParser will call the function "\_" during the parsing to create the ClassAnnotationContext (see folloing).
 
-When AnnotationsParser parse a class it create a ClassAnnotations object and ClassAnnotationContext object.
+When AnnotationsParser parse a class, it creates a ClassAnnotations object and a ClassAnnotationContext object.
 
 ### Example:
 ```javascript
@@ -31,11 +31,11 @@ Now the AnnotationsParser try to call (if exists) the magic function "\_":
 ```javascript
 classAnnotationContext.data = MyClass._(classAnnotationContext, classAnnotations);
 ```
-Then put all annotations of the function "\_" into as class annotations. In this way the magic function can read the annotations and other class data to create a user-defined classAnnotationContext data (class metadata).
+Then put all annotations of the function "\_" as annotations of the class. In this way the magic function can read the annotations and other class data to create a user-defined classAnnotationContext.data (class metadata).
 
 ### The ClassAnnotationsContext object:
 
-The ClassAnnotationContext is an object that capture the data from the magic function "\_" and from some special annotations, il also get a list of method with particular annotations.
+The ClassAnnotationContext is an object that capture the data from the magic function "\_" and from some special annotations, it also get a list of method with particular annotations.
 This object can used to extend more the reflection potentialities. For example you can get the list of methods that have the "@?Example" annotation automatically from the ClassAnnotationContext. It sounds like a query into the class/object.
 
 ### The ClassAnnotations object:
