@@ -94,53 +94,34 @@ If the annotation name ends with "\[someString\]" the annotation type is Object.
 
 
 ### Base annotations types:
-`Boolean: @annotation
-
+<pre>Boolean: @annotation
 String: @annotation String value
-
 List: @annotation: item1, item2, item3
-
-Multiline (String) @annotation {
-
+Multiline (String) : @annotation {
  line1
- 
  line2
- 
  line3
- 
  }
-`
+</pre>
 
 ### Example of mixed annotation types:
-`
+<pre>
 @stringArray[] value0
-
 @stringArray[] value1
 
-
 @stringObject[a] value of "a"
-
 @stringObject[b] value of "b"
-
-
 
 @list: item0, item1, item2, item3
 
 @listArray[]: item00, item01, item02
-
 @listArray[]: item10, item11, item12
-
-
 
 @boolean
 
 @?booleanInContext
-
 @?stringInContext String value
 
-
 @?stringArrayInContext[] velue0
-
 @?stringArrayInContext[] velue1
-
-`
+</pre>
