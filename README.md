@@ -81,40 +81,66 @@ Return an object filled by annotations names and values.
 ### Extended annotations types:
 
 All annotations can be simple, array, object and added to ClassAnnotationsContext or not.
+
 All annotations name stats with the character "@".
+
 If the character "@" is followed by the character "?" the annotation is added to the relative section of ClassAnnotationsContext automatically.
+
 To insert a method into a ClassAnnotationsContext's methods list, add to the method an annotation starting with: "@?"
+
 If the annotation name ends with "\[\]" the annotation type is Array.
+
 If the annotation name ends with "\[someString\]" the annotation type is Object.
+
 
 ### Base annotations types:
 `Boolean: @annotation
+
 String: @annotation String value
+
 List: @annotation: item1, item2, item3
+
 Multiline (String) @annotation {
+
  line1
+ 
  line2
+ 
  line3
+ 
  }
 `
 
 ### Example of mixed annotation types:
 `
 @stringArray[] value0
+
 @stringArray[] value1
 
+
 @stringObject[a] value of "a"
+
 @stringObject[b] value of "b"
 
+
+
 @list: item0, item1, item2, item3
+
 @listArray[]: item00, item01, item02
+
 @listArray[]: item10, item11, item12
 
+
+
 @boolean
+
 @?booleanInContext
+
 @?stringInContext String value
+
+
 @?stringArrayInContext[] velue0
+
 @?stringArrayInContext[] velue1
+
 `
-
-
