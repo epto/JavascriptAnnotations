@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<title>TEST</title>
+<meta charset="utf-8">
+<script src="../src/AnnotationsParser.js"></script>
+<script src="Dump.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script>
+	var MyClass = {
+			"_" : function(classContext,classAnnotations) {
+				/** 
+				 * @?title Test class
+				 * @version 1.0
+				 * @description AnnotationsParser test class.
+				 * */
+				var data = {};	// Create the data context field.
+				
+					data.myVariable = // myVariable property
+						classAnnotations.getClassAnnotation('title') + // get the @title class annotation.
+						' ' + 
+						classAnnotations.getClassAnnotation('version') // get the @version class annotation.
+					;
+				
+				return data; // The return value of the magic function "_" is stored in the data field of ClassContext.
+				},				
+
+			"foo" :	function(x) {
+				/**
+				 * @title Title of foo		## Annotation comment
+				 * @description Return x*2
+				 * @list: a,b,c,d
+				 * @bool
+				 * @?inContext
+				 * @test[a] "Value of a"
+				 * @test[b] Balue of b
+				 * @numTest[] zero
+				 * @numTest[] one
+				 * */
+				return x*2;
+				} ,
+				
+			"bar" : function() {
+				/**
+				 * @title Title of bar
+				 * @description Return bar
+				 * @multiline {
+				 * test1
+				 * test2
+				 * test3
+				 * }
+				 * */
+				return "bar";
+				}
+			 
+			} ;
+			
+	function test() {
+		
+		if (!AnnotationsParser.isSupported()) {
+			alert("This browser doesn't support annotations in javascript!");
+			return;
+			}
+			
+		var par = AnnotationsParser.parseClass('MyClass');
+		
+		var div = document.getElementById('ClassContext');
+		div.innerHTML = Dump( par.getContext() ) ;	
+		
+		div = document.getElementById('ClassAnnotations');	
+		div.innerHTML = Dump( par.getAllClassAnnotations() ) ;	
+		
+		div = document.getElementById('ClassStruct');	
+		div.innerHTML = Dump( par.getAllAnnotations() ) ;	
+		
+		div = document.getElementById('getAnnotationData');	
+		div.innerHTML = Dump( par.getAnnotationData('foo','test') ) ;	
+		
+	}
+</script>
+</head>
+
+<body onload="test()">
+
+<b>Class AnnotationContext:</b>	
+	<div id="ClassContext"></div>	
+	
+<b>Class annotations:</b>
+	<div id="ClassAnnotations"></div>	
+	
+<b>Class methods annotations:</b>
+	<div id="ClassStruct"></div>
+
+<b>Example of getAnnotationData MyClass.foo@test:</b>
+	<div id="getAnnotationData"></div>
+
+</body>
+</html>
